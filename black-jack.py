@@ -1,6 +1,10 @@
 import random
 
 
+class SomeException(Exception):
+    pass
+
+
 class Player():
     def __init__(self, name, is_dealer=False, is_max=21):
         self.name = name
@@ -66,7 +70,10 @@ class BlackJack():
         while True:
             if not self.players[idx].is_dealer:
                 tmp = str(input('カードを引きますか？ y/n : '))
-                draw_sts = True if tmp == 'y' else False
+                if tmp == 'y' or tmp == 'n':
+                    draw_sts = True if tmp == 'y' else False
+                else:
+                    continue
 
             if (self.players[idx].is_dealer
                 and self.players[idx].total >= self.players[idx].is_max):
@@ -104,7 +111,7 @@ def game_start():
     bj = BlackJack(dealer.players, dealer.deck)
     bj.draw_card(0)
     bj.draw_card(1)
-    bj.win_judgment()
+    bj.judgment()
 
 
 def main():
