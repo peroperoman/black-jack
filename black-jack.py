@@ -1,5 +1,6 @@
 import random
 
+
 class Player():
     def __init__(self, name, is_dealer=False, is_max=21):
         self.name = name
@@ -82,7 +83,7 @@ class BlackJack():
                 self.burst_display(idx)
                 exit()
 
-    def win_judgment(self):
+    def judgment(self):
         self.update_total(0)
         self.update_total(1)
         print('\n' + '-'*20 + '結果' + '-'*20)
@@ -95,6 +96,7 @@ class BlackJack():
         elif self.players[1].total < self.players[0].total:
             print(f'\n{self.players[0].name} の勝ち! \n')
 
+
 def game_start():
     you = Player('You')
     cpu = Player('Dealer', is_dealer=True, is_max=17)
@@ -104,8 +106,10 @@ def game_start():
     bj.draw_card(1)
     bj.win_judgment()
 
+
 def main():
     game_start()
+
 
 if __name__ == '__main__':
     main()
