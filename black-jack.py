@@ -1,9 +1,7 @@
 import random
 
-
 class SomeException(Exception):
     pass
-
 
 class Player():
     def __init__(self, name, is_dealer=False, is_max=21):
@@ -15,7 +13,6 @@ class Player():
 
     def __repr__(self):
         return self.name
-
 
 class Dealer():
     def __init__(self, *args):
@@ -34,7 +31,6 @@ class Dealer():
         for player in players:
             player.deck = [self.deck.pop() for _ in range(2)]
         return players
-
 
 class BlackJack():
     def __init__(self, players, deck):
@@ -103,7 +99,6 @@ class BlackJack():
         elif self.players[1].total < self.players[0].total:
             print(f'\n{self.players[0].name} の勝ち! \n')
 
-
 def game_start():
     you = Player('You')
     cpu = Player('Dealer', is_dealer=True, is_max=17)
@@ -113,10 +108,8 @@ def game_start():
     bj.draw_card(1)
     bj.judgment()
 
-
 def main():
     game_start()
-
 
 if __name__ == '__main__':
     main()
